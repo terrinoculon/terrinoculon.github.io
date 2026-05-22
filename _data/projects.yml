@@ -1,0 +1,91 @@
+- title: "Semantic Segmentation for Surface Anomalies and Defects Detection"
+  meta: "2024 – Present . Artmyn"
+  media:
+    type: "video"
+    poster: "assets/images/segmentation.png"
+    src: "assets/videos/segmentation_optimized.mp4"
+    caption: "Condition analysis results."
+  description: |-
+    We aim at detecting surface defects, anomalies and events on Artmyn's multimodal gigapixel digital twins. We worked with external experts to develop a small and sparse, but precisely annotated dataset. For training, we leveraged distribution aware resampling, heavy augmentations, a weighted loss function, selective masking, and elements of weakly supervised and semi-supervised learning in order to develop a zoo of semantic segmentation models. At gigapixel scales getting consistent predictions without compromising precision or recall is not trivial, so during inference in addition to severe test-time augmentations, we also ensemble the models via majority voting.
+
+- title: "Differentiable Rendering for Spatially-Varying Reflectance Estimation"
+  meta: "2022 – 2024 . Artmyn"
+  media:
+    type: "video"
+    poster: "assets/images/svbrdf.png"
+    src: "assets/videos/svbrdf_optimized.mp4"
+    caption: "Specular reflectance example."
+  description: |-
+    An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements, particularly for objects composed of multiple classes of materials.
+
+- title: "Gigapixel-Scale Multi-Modal Capture and Processing Pipeline"
+  meta: "2021 – 2023 . Artmyn"
+  media:
+    type: "video"
+    poster: "assets/images/pipeline.png"
+    src: "assets/videos/pipeline_optimized.mp4"
+    caption: "Gigapixel scale multimodal model."
+  description: |-
+    Artmyn's multimodal imaging pipeline operates at 2000ppi, producing gigapixel assets. This comes with several challenges. Consistent image registration is a big challenge, particularly across regions with repeating patterns, which can occur surprisingly often in paintings. To overcome this, I built CRAFT, an inhouse adaptation of the RAFT optical flow CNN, where we added a real geometry encoder based on estimated depth and transfer learnt on synthetic data, resulting in a reduction of failure rates from 20% to under 1%. Accurate depth estimation at these scales is also non-trivial. I cast the problem as a large scale inverse problem with priors from both photometric cues and stereo displacement to improve depth estimation drastically. I also contributed heavily to proper camera sensor and color calibration models resulting in extremely high fidelity digital twins.
+
+- title: "3D Reconstruction in the Wild"
+  meta: "2024 . CS231N"
+  media:
+    type: "image"
+    src: "assets/images/recons.png"
+    alt: "3D reconstruction result"
+    caption: "3D reconstruction in the wild."
+  description: |-
+    This was a research project for the course CS231N - Deep Learning for Computer Vision at Stanford Online. In this project the problem of Phototourism - i.e recreating a 3D model of the real world from unstructured set of photographs is considered from a deep learning perspective. The work explores the use of deep learning components in the classical structure from motion pipeline. It also explores the replacement of the optimization component bundle adjustment using the recently proposed DBARF, a generalized NERF inspired neural rendering method that simultaneously optimizes camera pose and image rendering. It is seen that while deep-learning components are in general successful in improving the feature description and matching stage, even neural rendering methods that _optimize_ instead of learn, fail to achieve the accuracy of bundle adjustment.
+  links:
+    - label: "Report"
+      href: "assets/docs/3D_Reconstruction_in_the_Wild.pdf"
+
+- title: "Exploring the capability of Tiny Language Models for story telling for resource constrained languages"
+  meta: "2025 . CS224N"
+  media:
+    type: "image"
+    src: "assets/images/tlm.png"
+    alt: "Evaluation of TLMs"
+  description: |-
+    This was a research project for the course CS224N - Natural Language Processing at Stanford Online. In this study, we are interested in Tamil language models that can tell stories with the same complexity as told to toddlers and young children. To build such a model we created a machine translated version of the TinyStories dataset with 1M stories in the train split. We then explore GPTNeo and Llama models of differing sizes, all less than 150M parameters to learn story telling. We take a three stage approach, where the model is first pretrained on internet quality Tamil data. Next the machine translated dataset is used for continual training. Followed by this we run a final fine tuning run with a very small expert curated dataset of 2000 stories in the train split. We also attempt LoRA fine tuning of an English language GPTNeo model. We see that while the models are able to tell stories, they are not of high quality, mainly arising from the low-quality of machine translations. Some of the resulting models are small enough at less than 100MB and can easily run on your browser. Head over to the project site to give it a try.
+  links:
+    - label: "Report"
+      href: "assets/docs/CS224N__Project_Final_Report-5.pdf"
+    - label: "Project Page"
+      href: "https://tniranjan.github.io/kurunkathai"
+
+- title: "Computational Methods for freeform optics design"
+  meta: "2017 - 2020 . Rayform"  
+  description: |-
+    At Rayform, I contributed heavily to the algorithm in production for the design of freeform optics. My particular focus was on the computational method behind the lens' surface design, resulting in a parameter-free algorithm that was robust to more general light configurations. This has since been licensed to LVMH's Fred brand.
+  links:
+    - label: "Rayform"
+      href: "https://www.rayform.ch/"
+
+- title: "Computational Imaging for Digitization"
+  meta: "2012 - 2016 . EPFL"
+  media:
+    type: "image"
+    src: "assets/images/digitization.png"
+    alt: "PhD thesis work"
+  description: |-
+    During my [PhD at EPFL](https://infoscience.epfl.ch/entities/publication/31c178c8-b62d-4987-9ed4-c817e85429bb), I worked on a Google funded project called "eFacsimile" that was focused on modern computational methods for high fidelity digitization of cultural heritage artifacts. The work resulted in collaborations and exhibitions at [Vitromusée](https://vitromusee.ch/) and IP that was later licensed to [Artmyn](https://artmyn.com/) through [Invaluable](https://www.invaluable.com/). A selection of resulting publications and media coverage is linked below.
+  link_groups:
+    - title: "_Handheld reflectance acquisition of paintings_ IEEE Transactions on Computational Imaging, 2017"
+      links:
+        - label: "Paper"
+          href: "https://infoscience.epfl.ch/entities/publication/91f6f10f-ffec-464b-b58a-cf3baf4e2ecf"
+        - label: "Project Page"
+          href: "https://nrnjn.in/mobile-acquisition"
+        - label: "Patent"
+          href: "https://infoscience.epfl.ch/entities/patent/54816ce4-3593-4da7-b2e6-13691425be68"
+    
+    - title: "_VITRAIL: Acquisition, Modelling and Rendering of Stained Glass_ IEEE Transactions on Image Processing, 2016"
+      links:
+        - label: "Paper"
+          href: "https://infoscience.epfl.ch/entities/publication/f73bc686-82eb-4336-9450-68685d320ab3"
+        - label: "Scientific Media"
+          href: "https://phys.org/news/2013-11-cathedral-window.html"
+        - label: "Cultural Heritage Media"
+          href: "https://www.choisir.ch/religion/eglises/item/3834-a-la-collegiale-de-romont-chaque-heure-est-differente"        

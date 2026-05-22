@@ -3,7 +3,10 @@
   --text: #1f2933;
   --muted: #5f6c76;
   --line: #d9dee3;
-  --link: #2f5d62;
+  --link: #001882;
+  --link-soft-bg: #e8ecff;
+  --link-soft-border: #b8c6ff;
+  --link-soft-hover: #dbe3ff;
   --code-bg: #e9eeea;
 }
 
@@ -85,6 +88,52 @@ h3 {
   margin-top: 0.35rem;
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0;
+}
+
+.project-link-groups {
+  margin: 0.8rem 0 0;
+}
+
+.project-link-groups li {
+  margin-bottom: 1rem;
+}
+
+.project-link-groups li:last-child {
+  margin-bottom: 0;
+}
+
+.project-link-groups .project-links {
+  margin-top: 0.45rem;
+}
+
+.project-links a {
+  display: inline-block;
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--link-soft-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  background: var(--link-soft-bg);
+}
+
+.project-links a:hover {
+  text-decoration: none;
+  border-color: var(--link);
+  background: var(--link-soft-hover);
+}
+
+.project-links a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
 }
 
 @media (max-width: 640px) {

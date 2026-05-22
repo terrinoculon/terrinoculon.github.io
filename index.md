@@ -27,80 +27,12 @@ title: Niranjan Thanikachalam
 	</a>
 </p>
 
-I am a Computer Vision engineer interested in 3D reconstruction, segmentation, inverse rendering, inverse problems and numerical optimization.
+I am a Computer Vision engineer with a PhD from EPFL in Computational Imaging. interested in 3D reconstruction, segmentation, inverse rendering, inverse problems and numerical optimization.
 
 ---
-
-<div class="project-head">
-<h3>Semantic Segmentation for Surface Condition and Defect Detection</h3>
-<p class="project-meta">2023 – Present</p>
-</div>
-<figure class="project-media">
-<video controls preload="none" playsinline poster="assets/images/segmentation.png">
-<source src="assets/videos/segmentation_optimized.mp4" type="video/mp4">
-</video>
-<figcaption>Condition analysis results.</figcaption>
-</figure>
-
-We aim at detecting surface defects, anomalies and events on Artmyn's multimodal gigapixel digital twins. We worked with external experts to develop a small and sparse, but precisely annotated dataset. For training, we leveraged distribution aware resampling, heavy augmentations, a weighted loss function, selective masking, and elements of weakly supervised and semi-supervised learning in order to develop a zoo of semantic segmentation models. At gigapixel scales getting consistent predictions without compromising precision or recall is not trivial, so during inference in addition to severe test-time augmentations, we also ensemble the models via majority voting.
-
+{% for project in site.data.projects %}
+{% include project_entry.html project=project %}
+{% unless forloop.last %}
 ---
-
-<div class="project-head">
-<h3>Differentiable Rendering for Spatially-Varying Reflectance Estimation</h3>
-<p class="project-meta">2022 – 2024</p>
-</div>
-<figure class="project-media">
-<video controls preload="none" playsinline poster="assets/images/svbrdf.png">
-<source src="assets/videos/svbrdf_optimized.mp4" type="video/mp4">
-</video>
-<figcaption>Specular reflectance example.</figcaption>
-</figure>
-
-An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements, particularly for objects composed of multiple classes of materials. 
-
----
-
-<div class="project-head">
-<h3>Gigapixel-Scale Multi-Modal Capture and Processing Pipeline</h3>
-<p class="project-meta">2021 – 2023</p>
-</div>
-<figure class="project-media">
-<video controls preload="none" playsinline poster="assets/images/pipeline.png">
-<source src="assets/videos/pipeline_optimized.mp4" type="video/mp4">
-</video>
-<figcaption>Gigapixel scale multimodal model.</figcaption>
-</figure>
-
-Artmyn's multimodal imaging pipeline operates at 2000ppi, producing gigapixel assets. This comes with several challenges. Consistent image registration is a big challenge, particularly across regions with repeating patterns, which can occur surprisingly often in paintings. To overcome this, I built CRAFT, an inhouse adaptation of the RAFT optical flow CNN, where we added a real geometry encoder based on estimated depth and transfer learnt on synthetic data, resulting in a reduction of failure rates from 20% to under 1%. Accurate depth estimation at these scales is also non-trivial. I cast the problem as a large scale inverse problem with priors from both photometric cues and stereo displacement to improve depth estimation drastically. I also contributed heavily to proper camera sensor and color calibration models resulting in extremely high fidelity digital twins.
-
----
-
-
-<div class="project-head">
-<h3>3D Reconstruction in the Wild </h3>
-<p class="project-meta">2024 . CS231N</p>
-</div>
-<figure class="project-media">
-<img src="assets/images/recons.png" alt="3D reconstruction result" loading="lazy">
-<figcaption>3D reconstruction in the wild.</figcaption>
-</figure>
-
-This was a research project for the course CS231N - Deep Learning for Computer Vision at Stanford Online. In this project the problem of Phototourism - i.e recreating a 3D model of the real world from unstructured set of photographs is considered from a deep learning perspective. The work explores the use of deep learning components in the classical structure from motion pipeline. It also explores the replacement of the optimization component bundle adjustment using the recently proposed DBARF, a generalized NERF inspired neural rendering method that simultaneously optimizes camera pose and image rendering. It is seen that while deep-learning components are in general successful in improving the feature description and matching stage, even neural rendering methods that _optimize_ instead of learn, fail to achieve the accuracy of bundle adjustment.
-
-[Report](assets/docs/3D_Reconstruction_in_the_Wild.pdf)
-
-<div class="project-head">
-<h3> Exploring the capability of Tiny Language Models for story telling for resource constrained languages</h3>
-<p class="project-meta">2025 . CS224N</p>
-</div>
-<figure class="project-media">
-<video controls preload="none" playsinline poster="assets/images/pipeline.png">
-<source src="assets/videos/pipeline_optimized.mp4" type="video/mp4">
-</video>
-<figcaption>Gigapixel scale multimodal model.</figcaption>
-</figure>
-
-This was a research project for the course CS224N - Natural Language Processing at Stanford Online. In this study, we are interested in Tamil language models that can tell stories with the same complexity as told to toddlers and young children. To build such a model we created a machine translated version of the TinyStories dataset with 1M stories in the train split. We then explore GPTNeo and Llama models of differing sizes, all less than 150M parameters to learn story telling. We take a three stage approach, where the model is first pretrained on internet quality Tamil data. Next the machine translated dataset is used for continual training. Followed by this we run a final fine tuning run with a very small expert curated dataset of 2000 stories in the train split. We also attempt LoRA fine tuning of an English language GPTNeo model. We see that while the models are able to tell stories, they are not of high quality, mainly arising from the low-quality of machine translations. Some of the resulting models are small enough at less than 100MB and can easily run on your browser. Head over to the project site to give it a try.
-
-[Report](assets/docs/CS224N__Project_Final_Report-5.pdf) [Project Page](https://tniranjan.github.io/kurunkathai)
+{% endunless %}
+{% endfor %}

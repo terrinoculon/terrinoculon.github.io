@@ -1,0 +1,40 @@
+{% assign p = include.project %}
+<div class="project-head">
+<h2>{{ p.title }}</h2>
+<p class="project-meta">{{ p.meta }}</p>
+</div>
+<figure class="project-media">
+{% if p.media.type == "video" %}
+<video controls preload="none" playsinline{% if p.media.poster %} poster="{{ p.media.poster }}"{% endif %}>
+<source src="{{ p.media.src }}" type="video/mp4">
+</video>
+{% elsif p.media.type == "image" %}
+<img src="{{ p.media.src }}" alt="{{ p.media.alt }}" loading="lazy">
+{% endif %}
+{% if p.media.caption %}
+<figcaption>{{ p.media.caption }}</figcaption>
+{% endif %}
+</figure>
+
+{{ p.description | markdownify }}
+
+{% if p.link_groups %}
+<ul class="project-link-groups">
+{% for group in p.link_groups %}
+<li>
+<span class="project-link-group-title">{{ group.title | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+<p class="project-links">
+{% for link in group.links %}
+<a href="{{ link.href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+{% endfor %}
+</p>
+</li>
+{% endfor %}
+</ul>
+{% elsif p.links %}
+<p class="project-links">
+{% for link in p.links %}
+<a href="{{ link.href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+{% endfor %}
+</p>
+{% endif %}
