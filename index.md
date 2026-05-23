@@ -27,7 +27,7 @@ title: Niranjan Thanikachalam
 	</a>
 </p>
 
-I am a Computer Vision engineer with a PhD from EPFL in Computational Imaging. interested in 3D reconstruction, segmentation, inverse rendering, inverse problems and numerical optimization.
+I am a Computer Vision engineer with a PhD from EPFL in Computational Imaging. I am interested in 3D reconstruction, segmentation, inverse rendering, inverse problems and numerical optimization.
 
 ---
 {% for project in site.data.projects %}
