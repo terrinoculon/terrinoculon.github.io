@@ -40,6 +40,8 @@
   links:
     - label: "Report"
       href: "assets/docs/3D_Reconstruction_in_the_Wild.pdf"
+    - label: "Code"
+      href: "https://github.com/tniranjan/recons3d"
 
 - title: "Exploring the capability of Tiny Language Models for story telling for resource constrained languages"
   meta: "2025 . CS224N"
@@ -54,6 +56,8 @@
       href: "assets/docs/CS224N__Project_Final_Report-5.pdf"
     - label: "Project Page"
       href: "https://tniranjan.github.io/kurunkathai"
+    - label: "Code"
+      href: "https://github.com/tniranjan/kurunkathai"
 
 - title: "Computational Methods for freeform optics design"
   meta: "2017 - 2020 . Rayform"  
