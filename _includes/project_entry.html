@@ -12,7 +12,7 @@
 <img src="{{ p.media.src }}" alt="{{ p.media.alt }}" loading="lazy">
 {% endif %}
 {% if p.media.caption %}
-<figcaption>{{ p.media.caption }}</figcaption>
+<figcaption>{{ p.media.caption | markdownify | remove: '<p>' | remove: '</p>' }}</figcaption>
 {% endif %}
 </figure>
 
