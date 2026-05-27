@@ -3,7 +3,7 @@
 <h2>{{ p.title }}</h2>
 <p class="project-meta">{{ p.meta }}</p>
 </div>
-<figure class="project-media">
+<figure class="project-media{% if p.media_width == 'one-third' %} project-media--one-third{% endif %}">
 {% if p.media.type == "video" %}
 <video controls preload="none" playsinline{% if p.media.poster %} poster="{{ p.media.poster }}"{% endif %}>
 <source src="{{ p.media.src }}" type="video/mp4">
@@ -17,6 +17,12 @@
 </figure>
 
 {{ p.description | markdownify }}
+{% if p.description_more %}
+<details class="project-description">
+<summary>More details</summary>
+{{ p.description_more | markdownify }}
+</details>
+{% endif %}
 
 {% if p.link_groups %}
 <ul class="project-link-groups">
