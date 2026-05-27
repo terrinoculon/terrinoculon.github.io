@@ -22,7 +22,7 @@
     src: "assets/videos/svbrdf_optimized.mp4"
     caption: "Specular reflectance example."
   description: |-
-    An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements with upto 15dB of PSNR in objects with regions of specular highlights.
+    An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements with an increase of up to 15dB of PSNR in objects with regions of specular highlights.
 
 - title: "Gigapixel-Scale Multi-Modal Capture and Processing Pipeline"
   meta: "2021 – 2023 . Artmyn"
