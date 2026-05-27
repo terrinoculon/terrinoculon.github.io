@@ -148,6 +148,10 @@ p, ul {
   color: var(--muted);
 }
 
+p {
+  text-align: justify;
+}
+
 ul {
   padding-left: 1.2rem;
 }

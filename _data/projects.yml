@@ -6,7 +6,13 @@
     src: "assets/videos/segmentation_optimized.mp4"
     caption: "Condition analysis results."
   description: |-
-    We aim at detecting surface defects, anomalies and events on Artmyn's multimodal gigapixel digital twins. We worked with external experts to develop a small and sparse, but precisely annotated dataset. For training, we leveraged distribution aware resampling, heavy augmentations, a weighted loss function, selective masking, and elements of weakly supervised and semi-supervised learning in order to develop a zoo of semantic segmentation models. At gigapixel scales getting consistent predictions without compromising precision or recall is not trivial, so during inference in addition to severe test-time augmentations, we also ensemble the models via majority voting.
+    Surface defects and anomalies are rare by nature — their label distribution is severely skewed even within an already sparse dataset, making this a fundamental data scarcity problem compounded by class imbalance rather than a standard segmentation task. The input is a 16-channel multimodal signal produced by Artmyn's gigapixel digital twin capture pipeline, where each modality has distinct statistical properties requiring independent normalisation and augmentation strategies. Geometric augmentations on surface normals, for instance, require component-wise sign corrections to remain physically consistent.
+    
+    Annotation was developed with domain experts and is sparse, partially covering each asset, with labels ranging from precise to weak and positive-only depending on defect visibility. To build a reliable training signal from this, we progressed deliberately through increasingly sophisticated learning regimes: standard supervision established a baseline, pseudo-labelling extended it to unlabelled data, and a Mean Teacher and FixMatch hybrid addressed the confirmation bias that naive pseudo-labelling introduced at scale. Rare class supervision was further reinforced through distribution-aware resampling, selective loss masking over annotated regions, and a combination of focal, dice, and BCE losses weighted by class frequency.
+    
+    The training infrastructure was built from scratch to support this progression. As data volume scaled toward SSL, augmentation and I/O became sequential bottlenecks — resolved through a migration from Kornia to DALI for GPU-accelerated augmentation and WebDataset-based streaming, making the pipeline genuinely compute-bound. A zoo of UNet++, SegFormer, and DeepLabV3 models was trained under this regime and ensembled at inference.
+    
+    Inference on gigapixel assets introduces a separate class of problems. Patch-level prediction consistency across an asset is non-trivial — intra-asset distribution shift from material variation and illumination drift means naive sliding window produces spatially inconsistent results. Quantile-based normalisation per patch reduced but did not eliminate confidence variation across the asset. Test-time augmentation and model ensemble via majority voting were the primary mechanisms for achieving consistent predictions at scale without sacrificing precision or recall on rare defect classes.
 
 - title: "Differentiable Rendering for Spatially-Varying Reflectance Estimation"
   meta: "2022 – 2024 . Artmyn"
@@ -16,7 +22,7 @@
     src: "assets/videos/svbrdf_optimized.mp4"
     caption: "Specular reflectance example."
   description: |-
-    An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements, particularly for objects composed of multiple classes of materials.
+    An aspect of real world objects that is often ignored in 3D-reconstructions is reflectance capture. The visual richness of material textures in real world arises from the way light interacts with the surface roughness of the object, resulting in cues we perceive such as matte, glossy, shiny. To effectively estimate this reflectance, I built a differentiable renderer for inverse rendering, partially inspired by the idea behind NeRF. The resulting reflectance model brought drastic realism improvements with upto 15dB of PSNR in objects with regions of specular highlights.
 
 - title: "Gigapixel-Scale Multi-Modal Capture and Processing Pipeline"
   meta: "2021 – 2023 . Artmyn"
