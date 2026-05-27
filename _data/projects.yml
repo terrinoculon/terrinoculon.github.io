@@ -42,7 +42,7 @@
     type: "image"
     src: "assets/images/recons.png"
     alt: "3D reconstruction result"
-    caption: "3D reconstruction in the wild."
+    caption: "Comparision of point clouds reconstructed from unstructured photographs using LoFTR and two variations of DFSFM."
   description: |-
     This was a research project for the course CS231N - Deep Learning for Computer Vision at Stanford Online. In this project the problem of Phototourism - i.e recreating a 3D model of the real world from unstructured set of photographs is considered from a deep learning perspective. The work explores the use of deep learning components in the classical structure from motion pipeline. It also explores the replacement of the optimization component bundle adjustment using the recently proposed DBARF, a generalized NERF inspired neural rendering method that simultaneously optimizes camera pose and image rendering. It is seen that while deep-learning components are in general successful in improving the feature description and matching stage, even neural rendering methods that _optimize_ instead of learn, fail to achieve the accuracy of bundle adjustment.
   links:
@@ -57,6 +57,7 @@
     type: "image"
     src: "assets/images/tlm.png"
     alt: "Evaluation of TLMs"
+    caption: "Evolution of GPTEval scores across validation and test datasets."
   description: |-
     This was a research project for the course CS224N - Natural Language Processing at Stanford Online. In this study, we are interested in Tamil language models that can tell stories with the same complexity as told to toddlers and young children. To build such a model we created a machine translated version of the TinyStories dataset with 1M stories in the train split. We then explore GPTNeo and Llama models of differing sizes, all less than 150M parameters to learn story telling. We take a three stage approach, where the model is first pretrained on internet quality Tamil data. Next the machine translated dataset is used for continual training. Followed by this we run a final fine tuning run with a very small expert curated dataset of 2000 stories in the train split. We also attempt LoRA fine tuning of an English language GPTNeo model. We see that while the models are able to tell stories, they are not of high quality, mainly arising from the low-quality of machine translations. Some of the resulting models are small enough at less than 100MB and can easily run on your browser. Head over to the project site to give it a try.
   links:
