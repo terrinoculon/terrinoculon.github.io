@@ -48,8 +48,8 @@
   links:
     - label: "Report"
       href: "assets/docs/3D_Reconstruction_in_the_Wild.pdf"
-    - label: "Code"
-      href: "https://github.com/tniranjan/recons3d"
+    # - label: "Code"
+    #   href: "https://github.com/tniranjan/recons3d"
 
 - title: "Exploring the capability of Tiny Language Models for story telling for resource constrained languages"
   meta: "2025 . CS224N"
